@@ -3,6 +3,7 @@
 exports.processObject = (type, item, createContentDigest) => {
   const id = item._id;
   delete item._id;
+  convertNumberValuesToString(item)
   const nodeMetadata = {
     id,
     parent: null,
@@ -11,8 +12,7 @@ exports.processObject = (type, item, createContentDigest) => {
       type: `Cosmicjs${type}`,
       content: JSON.stringify(item),
       contentDigest: createContentDigest(item)
-    } // convertNumberValuesToString(item)
-
+    }
   };
   return Object.assign({}, item, nodeMetadata);
 };
