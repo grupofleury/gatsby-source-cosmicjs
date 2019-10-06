@@ -1,5 +1,5 @@
-const axios = require('axios');
-const { isObject, startsWith, forEach, concat } = require('lodash');
+const axios = require('axios')
+const { isObject, startsWith, forEach, concat } = require('lodash')
 
 module.exports = async ({ apiURL, bucketSlug, objectType, apiAccess }) => {
   const timeLabel = `Fetch Cosmic JS data for (${objectType})`
