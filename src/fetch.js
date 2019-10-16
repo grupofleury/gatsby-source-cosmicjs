@@ -17,7 +17,11 @@ module.exports = async ({ apiURL, bucketSlug, objectType, apiAccess }) => {
   }
 
   // Make initial API request.
-  const documents = await axios(apiEndpoint)
+  const documents = await axios(apiEndpoint, {
+    headers: {
+      "Accept-Encoding": "gzip, deflate"
+    }
+  })
 
   // Check for empty object type
   if (documents.data.objects === undefined) {
